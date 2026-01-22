@@ -12,23 +12,26 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ guestName, loading, onNavigate }) => {
   return (
     <InvitationCard>
-      <p className="text-[#c5a059] italic text-sm mb-4">
-        {loading ? 'Đang chuẩn bị lời chào...' : `Hân hạnh đón tiếp ${guestName}`}
-      </p>
+      <div className="relative group">
+        <p className="text-[#c5a059] italic text-sm mb-4 transition-all duration-300">
+          {loading ? 'Đang chuẩn bị lời chào...' : `Hân hạnh đón tiếp ${guestName}`}
+        </p>
+      </div>
       
       <div className="font-cursive text-6xl text-[#1a365d] mb-0 leading-tight">Graduation</div>
       <div className="tracking-[6px] text-lg font-light text-[#4a5568] uppercase mb-6">INVITATION</div>
       
-      <div className="w-44 h-44 mx-auto my-6 rounded-full border-[6px] border-[#c5a059] overflow-hidden shadow-xl">
+      <div className="w-44 h-44 mx-auto my-6 rounded-full border-[6px] border-[#c5a059] overflow-hidden shadow-xl relative">
         <img 
           src="https://picsum.photos/seed/graduate/400/400" 
           alt="Đặng Minh Hiền" 
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
       
       <h1 className="font-cursive text-5xl text-[#1a365d] my-4">Đặng Minh Hiền</h1>
-      <p className="text-[#4a5568] font-light tracking-wider mb-10">Phenikaa University Graduate</p>
+      <p className="text-[#4a5568] font-light tracking-wider mb-8">Phenikaa University Graduate</p>
 
       <div className="flex flex-col gap-4 items-center">
         <button 
@@ -43,6 +46,10 @@ const Home: React.FC<HomeProps> = ({ guestName, loading, onNavigate }) => {
         >
           Lịch Trình
         </button>
+      </div>
+
+      <div className="mt-8 text-[10px] text-[#4a5568] opacity-50 uppercase tracking-widest">
+        Nhấn vào icon share ở góc màn hình để gửi link riêng cho {guestName}
       </div>
     </InvitationCard>
   );
